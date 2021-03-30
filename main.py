@@ -63,6 +63,8 @@ except Exception as e:
 
 error_counter = 0
 loop = True
+
+print("start the loop")
 while loop:
     try:
         # prepare for photo
@@ -74,9 +76,10 @@ while loop:
         # save photo
         timestamp = rtc.datetime()
         time_str = '%4d%02d%02d%02d%02d%02d' %(timestamp[0], timestamp[1], timestamp[2], timestamp[4], timestamp[5], timestamp[6])
-
+        print(time_str)
+        print(app_config["mode"])
         if app_config['mode'] == 'microSD':
-            f = open('sd/'+time_str+'.jpg', 'w')
+            f = open('/sd/'+time_str+'.jpg', 'w')
             f.write(buf)
             time.sleep_ms(100)
             f.close()
